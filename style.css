@@ -268,7 +268,7 @@ h6 {
   background: var(--bg-color);
   margin-left: auto;
   margin-right: auto;
-  animation: swing 3s ease-in-out infinite;
+  /* animation: swing 3s ease-in-out infinite; */
 }
 
 .card__img {
@@ -285,7 +285,7 @@ h6 {
   position: absolute;
   width: 114px;
   height: 114px;
-  top: calc(50% - 57px);
+  top: calc(40% - 80px);
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -317,7 +317,7 @@ h6 {
 }
 
 .card__title {
-  margin-top: 60px;
+  margin-top: 15px;
   font-weight: 500;
   font-size: 18px;
   color: var(--main-color);
@@ -331,7 +331,7 @@ h6 {
 }
 
 .card__btn {
-  margin-top: 15px;
+  margin-top: 20px;
   width: 76px;
   height: 31px;
   border: 2px solid var(--main-color);
@@ -395,4 +395,48 @@ h6 {
   100% {
     transform: rotate(-1.5deg);
   }
+}
+
+.progress {
+  height: 8px;
+  background-color: #e5e5e5;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #1a1a1a;
+  transition: width 0.6s ease;
+}
+
+/* Progress bar styling */
+.progress {
+  height: 6px;
+  background-color: #e5e5e5;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #1a1a1a;
+  transition: width 0.6s ease, background-color 0.3s;
+}
+
+/* Hover effect */
+.tech-skill:hover .progress-bar {
+  background-color: #444;
+}
+
+/* Animate on scroll */
+[data-skill] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+[data-skill].show {
+  opacity: 1;
+  transform: translateY(0);
 }
