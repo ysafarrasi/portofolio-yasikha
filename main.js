@@ -9,6 +9,20 @@ const revealObserver = new IntersectionObserver((entries) => {
 });
 reveals.forEach((el) => revealObserver.observe(el));
 
+// Project Scroll Reveal Animation
+const projectReveals = document.querySelectorAll(".reveal-project");
+
+const projectRevealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+      projectRevealObserver.unobserve(entry.target);
+    }
+  });
+});
+
+projectReveals.forEach((el) => projectRevealObserver.observe(el));
+
 // Back to Top Button
 const toTopBtn = document.getElementById("toTopBtn");
 window.onscroll = function () {

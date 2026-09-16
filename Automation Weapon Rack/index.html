@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>
+      Can a Sensor Detect a Missing Magazine? — Yasikha Farras Ismail
+    </title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <!-- Project CSS -->
+    <link rel="stylesheet" href="../assets/css/AWR.css" />
+  </head>
+
+  <body>
+    <!-- =========================
+         HEADER
+    ========================== -->
+    <header class="project-header">
+      <div class="container">
+        <div class="header-inner">
+          <a href="../index.html" class="back-link">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back to Portfolio
+          </a>
+
+          <span class="header-project-label"> PROJECT / 01 </span>
+        </div>
+      </div>
+    </header>
+
+    <!-- =========================
+         HERO
+    ========================== -->
+    <main>
+      <section class="project-hero">
+        <div class="container">
+          <div class="hero-meta reveal-project">
+            <span>IoT / Web Development</span>
+            <span>Academic Project · 2024</span>
+          </div>
+
+          <h1 class="project-title reveal-project">
+            Can a Sensor Detect
+            <br />
+            a Missing Magazine?
+          </h1>
+
+          <p class="project-intro reveal-project">
+            An IoT-based monitoring prototype that connects physical sensors
+            with a web application to identify magazine status in real time.
+          </p>
+
+          <div class="hero-image reveal-project">
+            <img
+              src="../assets/img/AWR/Storage AWR V1.png"
+              alt="IoT monitoring system prototype"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+           THE PROBLEM
+      ========================== -->
+      <section class="case-section">
+        <div class="container">
+          <div class="case-grid">
+            <div class="section-label">
+              <span>01</span>
+              <p>The Problem</p>
+            </div>
+
+            <div class="case-content">
+              <h2>
+                What if the system could
+                <em>detect the change</em>
+                for you?
+              </h2>
+
+              <p>
+                The project started from a simple problem: checking whether a
+                stored SS1-V1 was placed on the rack with or without its
+                magazine still required manual inspection.
+              </p>
+
+              <p>
+                The proposed system aimed to automate this identification by
+                reading changes in the weight of the weapon and presenting the
+                resulting status through a web-based monitoring interface.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+           THE IDEA
+      ========================== -->
+      <section class="case-section case-section-dark">
+        <div class="container">
+          <div class="case-grid">
+            <div class="section-label light">
+              <span>02</span>
+              <p>The Idea</p>
+            </div>
+
+            <div class="case-content light">
+              <h2>
+                From a physical sensor
+                <br />
+                to a web interface.
+              </h2>
+
+              <p>
+                A Load Cell was placed underneath the storage rack to detect
+                changes in weight. The HX711 module connects the Load Cell with
+                the Arduino, while the Ethernet Shield provides network
+                connectivity.
+              </p>
+
+              <p>
+                Sensor data is sent to the server through an API, stored in a
+                database, and then displayed through the web application.
+              </p>
+
+              <div class="tech-flow">
+                <div>Load Cell</div>
+                <span>→</span>
+                <div>HX711</div>
+                <span>→</span>
+                <div>Arduino</div>
+                <span>→</span>
+                <div>API</div>
+                <span>→</span>
+                <div>Database</div>
+                <span>→</span>
+                <div>Web</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+           ARCHITECTURE
+      ========================== -->
+      <section class="case-section">
+        <div class="container">
+          <div class="case-grid">
+            <div class="section-label">
+              <span>03</span>
+              <p>Architecture</p>
+            </div>
+
+            <div class="case-content">
+              <h2>
+                A small system,
+                <br />
+                with multiple layers.
+              </h2>
+
+              <p>
+                The prototype used a master-slave architecture. One Arduino with
+                an Ethernet Shield acted as the master, while additional Arduino
+                boards acted as slaves for the chambers.
+              </p>
+
+              <div class="architecture">
+                <div class="architecture-box main-box">
+                  <small>MASTER</small>
+                  <strong>Arduino Uno</strong>
+                  <span>+ Ethernet Shield</span>
+                </div>
+
+                <div class="architecture-line">
+                  <span>I2C</span>
+                </div>
+
+                <div class="architecture-slaves">
+                  <div class="architecture-box">
+                    <small>SLAVE 01</small>
+                    <strong>Arduino Uno</strong>
+                    <span>Chamber 1</span>
+                  </div>
+
+                  <div class="architecture-box">
+                    <small>SLAVE 02</small>
+                    <strong>Arduino Uno</strong>
+                    <span>Chamber 2</span>
+                  </div>
+                </div>
+
+                <div class="architecture-note">
+                  Each chamber contains five weapon racks with Load Cell
+                  sensors.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+           HOW IT WORKS
+      ========================== -->
+      <section class="case-section case-section-soft">
+        <div class="container">
+          <div class="case-grid">
+            <div class="section-label">
+              <span>04</span>
+              <p>How It Works</p>
+            </div>
+
+            <div class="case-content">
+              <h2>
+                The system reads weight
+                <br />
+                as a status.
+              </h2>
+
+              <p>
+                The Load Cell reading is used to distinguish between several
+                conditions of the weapon on the rack.
+              </p>
+
+              <div class="status-grid">
+                <div class="status-card status-red">
+                  <span class="status-indicator"></span>
+                  <small>STATUS 0</small>
+                  <h3>Weapon Out</h3>
+                  <p>The weapon is not detected on the rack.</p>
+                </div>
+
+                <div class="status-card status-green">
+                  <span class="status-indicator"></span>
+                  <small>STATUS 1</small>
+                  <h3>Without Magazine</h3>
+                  <p>The weapon is detected without a magazine.</p>
+                </div>
+
+                <div class="status-card status-yellow">
+                  <span class="status-indicator"></span>
+                  <small>STATUS 2</small>
+                  <h3>With Magazine</h3>
+                  <p>The weapon is detected with a magazine.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+           MY CONTRIBUTION
+      ========================== -->
+      <section class="case-section">
+        <div class="container">
+          <div class="case-grid">
+            <div class="section-label">
+              <span>05</span>
+              <p>My Contribution</p>
+            </div>
+
+            <div class="case-content">
+              <h2>
+                Where I worked
+                <br />
+                on the system.
+              </h2>
+
+              <p>
+                My work focused on connecting the sensor side with the web
+                application and evaluating how the system responded to different
+                conditions.
+              </p>
+
+              <div class="contribution-list">
+                <div>
+                  <span>01</span>
+                  <p>
+                    Integrated Load Cell and Arduino data with the web
+                    application through an API.
+                  </p>
+                </div>
+
+                <div>
+                  <span>02</span>
+                  <p>
+                    Worked with the web interface and database flow for
+                    real-time monitoring.
+                  </p>
+                </div>
+
+                <div>
+                  <span>03</span>
+                  <p>Conducted testing across different system scenarios.</p>
+                </div>
+
+                <div>
+                  <span>04</span>
+                  <p>
+                    Evaluated response time and the resulting monitoring status.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+           TECHNOLOGY
+      ========================== -->
+      <section class="case-section case-section-dark">
+        <div class="container">
+          <div class="case-grid">
+            <div class="section-label light">
+              <span>06</span>
+              <p>Technology</p>
+            </div>
+
+            <div class="case-content light">
+              <h2>
+                The tools behind
+                <br />
+                the prototype.
+              </h2>
+
+              <div class="technology-groups">
+                <div class="technology-group">
+                  <small>Hardware</small>
+
+                  <div class="technology-tags">
+                    <span>Arduino UNO R3</span>
+                    <span>Load Cell</span>
+                    <span>HX711</span>
+                    <span>Ethernet Shield</span>
+                  </div>
+                </div>
+
+                <div class="technology-group">
+                  <small>Web & Backend</small>
+
+                  <div class="technology-tags">
+                    <span>PHP</span>
+                    <span>Laravel</span>
+                    <span>REST API</span>
+                    <span>MySQL</span>
+                  </div>
+                </div>
+
+                <div class="technology-group">
+                  <small>Development</small>
+
+                  <div class="technology-tags">
+                    <span>Arduino IDE</span>
+                    <span>Visual Studio Code</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+           RESULTS
+      ========================== -->
+      <section class="case-section">
+        <div class="container">
+          <div class="case-grid">
+            <div class="section-label">
+              <span>07</span>
+              <p>Testing & Results</p>
+            </div>
+
+            <div class="case-content">
+              <h2>
+                How fast could
+                <br />
+                the system respond?
+              </h2>
+
+              <p>
+                Response-time testing was performed 30 times for two scenarios:
+                when the weapon with a magazine was placed on the rack and when
+                it was removed.
+              </p>
+
+              <div class="result-grid">
+                <div class="result-card">
+                  <small>Magazine inserted</small>
+                  <strong>3.3<span>s</span></strong>
+                  <p>Average response time</p>
+                </div>
+
+                <div class="result-card">
+                  <small>Magazine removed</small>
+                  <strong>2.71<span>s</span></strong>
+                  <p>Average response time</p>
+                </div>
+              </div>
+
+              <div class="result-note">
+                <span>30×</span>
+                <p>
+                  Each main response-time scenario was tested 30 times to obtain
+                  average, minimum, and maximum response times.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+           LIMITATION
+      ========================== -->
+      <section class="case-section case-section-soft">
+        <div class="container">
+          <div class="case-grid">
+            <div class="section-label">
+              <span>08</span>
+              <p>What Didn't Work Perfectly</p>
+            </div>
+
+            <div class="case-content">
+              <h2>
+                Real systems are
+                <em>not always perfect.</em>
+              </h2>
+
+              <p>
+                During testing, the Load Cell showed weight variations of around
+                0.1–0.2 kg, which was attributed to instability in the Load Cell
+                platform.
+              </p>
+
+              <p>
+                The system was nevertheless able to identify the tested weapon
+                conditions correctly. The slave racks also showed higher
+                response times because data had to pass through the master
+                before reaching the web application.
+              </p>
+
+              <div class="limitation-stat">
+                <strong>0.1–0.2 kg</strong>
+                <span>Observed weight variation during testing</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+           WHAT I LEARNED
+      ========================== -->
+      <section class="case-section learning-section">
+        <div class="container">
+          <div class="learning-content">
+            <span class="learning-label"> 09 / WHAT I LEARNED </span>
+
+            <h2>
+              From a physical sensor
+              <br />
+              <em>to a software system.</em>
+            </h2>
+
+            <p>
+              This project taught me how a software application can interact
+              with physical hardware. Instead of thinking only about the web
+              interface, I had to understand how sensor data is captured,
+              transmitted, processed, stored, and finally presented to the user.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+           GALLERY
+      ========================== -->
+      <section class="gallery-section">
+        <div class="container">
+          <div class="gallery-header">
+            <span>10 / PROJECT GALLERY</span>
+            <h2>Inside the project.</h2>
+          </div>
+
+          <div class="row g-4">
+            <!-- Prototype -->
+            <div class="col-md-6">
+              <div class="gallery-image large">
+                <img
+                  src="../assets/img/AWR/iot-prototype.jpeg"
+                  alt="IoT system prototype"
+                />
+              </div>
+            </div>
+
+            <!-- Dashboard -->
+            <div class="col-md-6">
+              <div class="gallery-image dashboard">
+                <img
+                  src="../assets/img/AWR/BTP AWR.jpg"
+                  alt="Web-based monitoring dashboard"
+                />
+              </div>
+            </div>
+
+            <!-- Storage -->
+            <div class="col-md-5">
+              <div class="gallery-image storage">
+                <img
+                  src="../assets/img/AWR/Storage AWR V1.png"
+                  alt="Storage rack design"
+                />
+              </div>
+            </div>
+
+            <!-- Block Diagram -->
+            <div class="col-md-7">
+              <div class="gallery-image diagram">
+                <img
+                  src="../assets/img/card1.png"
+                  alt="IoT system block diagram"
+                />
+              </div>
+            </div>
+
+            <!-- Project Visit -->
+            <div class="col-md-12">
+              <div class="gallery-image visit">
+                <img
+                  src="../assets/img/AWR/iot-project-visit.jpeg"
+                  alt="Project demonstration during a project visit"
+                />
+
+                <div class="gallery-overlay">
+                  <span>PROJECT VISIT</span>
+                  <h3>From prototype to demonstration.</h3>
+                  <p>
+                    The prototype was demonstrated during a project visit
+                    involving TNI personnel and PT. Nexin.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+           NEXT PROJECT
+      ========================== -->
+      <section class="next-project">
+        <div class="container">
+          <div class="next-project-inner">
+            <span>Next Project</span>
+
+            <a href="../ai-infrastructure/index.html">
+              <h2>
+                What Happens When
+                <br />
+                an LLM Has to Handle
+                <em>the Load?</em>
+              </h2>
+
+              <div class="next-arrow">
+                Explore Project
+                <i class="fa-solid fa-arrow-right"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+    <footer class="project-footer">
+      <div class="container">
+        <div class="footer-inner">
+          <span> © 2026 Yasikha Farras Ismail </span>
+
+          <a href="../index.html"> Back to Portfolio </a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,700 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>RAG Chatbot | Yasikha Farras Ismail</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Project CSS -->
+    <link rel="stylesheet" href="../assets/css/rag-chatbot.css" />
+  </head>
+
+  <body>
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="project-header">
+      <div class="container">
+        <div class="project-nav">
+          <a href="../index.html" class="back-link">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back to Portfolio
+          </a>
+
+          <span class="project-nav-title"> Yasikha Farras Ismail </span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- =========================
+           HERO
+      ========================== -->
+
+      <section class="project-hero">
+        <div class="container">
+          <div class="hero-meta reveal-project">
+            <span>AI / Web Development</span>
+            <span>Final Project · 2025</span>
+          </div>
+
+          <h1 class="project-title reveal-project">
+            Can a Chatbot Find
+            <br />
+            the Right Answer from
+            <br />
+            a Knowledge Base?
+          </h1>
+
+          <p class="project-intro reveal-project">
+            A web-based ticketing assistant prototype that uses Retrieval-
+            Augmented Generation to retrieve relevant information before
+            generating an answer with Gemini.
+          </p>
+
+          <div class="hero-image reveal-project">
+            <img
+              src="../assets/img/ticketing-assistant.jpg"
+              alt="Ticketing Assistant chatbot interface"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+           THE PROBLEM
+      ========================== -->
+
+      <section class="case-section">
+        <div class="container">
+          <div class="case-grid">
+            <div class="case-label">
+              <span>01</span>
+              <small>The Problem</small>
+            </div>
+
+            <div class="case-content reveal-project">
+              <h2>
+                What if finding the right
+                <span>ticketing information</span>
+                was easier?
+              </h2>
+
+              <p>
+                The project started from a practical problem: users could
+                experience confusion when trying to understand service
+                procedures and fill in ticketing request forms.
+              </p>
+
+              <p>
+                Instead of relying only on keyword-based searching, the
+                prototype was designed to retrieve relevant information from a
+                prepared knowledge base and use that context when generating an
+                answer.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+           THE IDEA
+      ========================== -->
+
+      <section class="case-section case-section-alt">
+        <div class="container">
+          <div class="case-grid">
+            <div class="case-label">
+              <span>02</span>
+              <small>The Idea</small>
+            </div>
+
+            <div class="case-content reveal-project">
+              <h2>
+                Don't just generate an answer.
+                <span>Find the context first.</span>
+              </h2>
+
+              <p>
+                The prototype uses Retrieval-Augmented Generation (RAG) so that
+                a user's question can be matched against information stored in a
+                vector database before the final response is generated.
+              </p>
+
+              <p>
+                This approach separates the retrieval of relevant information
+                from the generation of the natural-language response.
+              </p>
+
+              <div class="rag-flow">
+                <div class="flow-item">
+                  <span>01</span>
+                  <strong>Question</strong>
+                  <small>User asks a question</small>
+                </div>
+
+                <div class="flow-arrow">→</div>
+
+                <div class="flow-item">
+                  <span>02</span>
+                  <strong>Retrieve</strong>
+                  <small>Find relevant context</small>
+                </div>
+
+                <div class="flow-arrow">→</div>
+
+                <div class="flow-item">
+                  <span>03</span>
+                  <strong>Generate</strong>
+                  <small>Gemini creates the answer</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+           SYSTEM ARCHITECTURE
+      ========================== -->
+
+      <section class="case-section">
+        <div class="container">
+          <div class="case-grid">
+            <div class="case-label">
+              <span>03</span>
+              <small>Architecture</small>
+            </div>
+
+            <div class="case-content reveal-project">
+              <h2>
+                Three layers,
+                <span>one conversation.</span>
+              </h2>
+
+              <p>
+                The system is structured into Presentation, Application, and
+                Data layers. The web interface communicates with the backend
+                through a REST API, while the backend manages the RAG pipeline,
+                vector search, and communication with the language model.
+              </p>
+
+              <div class="architecture">
+                <div class="architecture-layer">
+                  <small>PRESENTATION LAYER</small>
+
+                  <strong>React + Tailwind CSS</strong>
+
+                  <span>
+                    Chat interface · Category filter · Response display
+                  </span>
+                </div>
+
+                <div class="architecture-connector">
+                  <span>REST API</span>
+                </div>
+
+                <div class="architecture-layer">
+                  <small>APPLICATION LAYER</small>
+
+                  <strong>FastAPI · Python</strong>
+
+                  <span>
+                    RAG pipeline · Embedding · Retrieval · Response formatting
+                  </span>
+                </div>
+
+                <div class="architecture-connector">
+                  <span>Vector Search</span>
+                </div>
+
+                <div class="architecture-data">
+                  <div class="architecture-layer">
+                    <small>DATA LAYER</small>
+
+                    <strong>Qdrant</strong>
+
+                    <span> Vector embeddings + document metadata </span>
+                  </div>
+
+                  <div class="architecture-layer">
+                    <small>EXTERNAL AI</small>
+
+                    <strong>Sentence Transformer + Gemini</strong>
+
+                    <span> Embedding generation + answer generation </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+           RAG PIPELINE
+      ========================== -->
+
+      <section class="case-section case-section-dark">
+        <div class="container">
+          <div class="case-grid">
+            <div class="case-label">
+              <span>04</span>
+              <small>RAG Pipeline</small>
+            </div>
+
+            <div class="case-content reveal-project">
+              <h2>
+                From a question
+                <span>to a contextual answer.</span>
+              </h2>
+
+              <p>
+                When a user submits a question, the backend first converts the
+                query into a vector representation. The vector is then compared
+                with the stored embeddings in Qdrant to retrieve relevant
+                documents.
+              </p>
+
+              <div class="pipeline-list">
+                <div class="pipeline-item">
+                  <span>01</span>
+                  <div>
+                    <strong>Query Embedding</strong>
+                    <p>
+                      Sentence Transformer converts the question into a
+                      384-dimensional vector.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="pipeline-item">
+                  <span>02</span>
+                  <div>
+                    <strong>Vector Search</strong>
+                    <p>
+                      Qdrant searches for the most relevant documents using
+                      cosine similarity.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="pipeline-item">
+                  <span>03</span>
+                  <div>
+                    <strong>Context Retrieval</strong>
+                    <p>
+                      The top relevant documents are selected as context for the
+                      response.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="pipeline-item">
+                  <span>04</span>
+                  <div>
+                    <strong>Answer Generation</strong>
+                    <p>
+                      Gemini generates a natural-language answer based on the
+                      retrieved context.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="pipeline-item">
+                  <span>05</span>
+                  <div>
+                    <strong>Response Formatting</strong>
+                    <p>
+                      The backend returns the answer together with document
+                      source information to the frontend.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+           KNOWLEDGE BASE
+      ========================== -->
+
+      <section class="case-section case-section-alt">
+        <div class="container">
+          <div class="case-grid">
+            <div class="case-label">
+              <span>05</span>
+              <small>Knowledge Base</small>
+            </div>
+
+            <div class="case-content reveal-project">
+              <h2>
+                The chatbot is only
+                <span>as useful as its knowledge.</span>
+              </h2>
+
+              <p>
+                The knowledge base was prepared from 20 source documents related
+                to infrastructure ticketing. During indexing, the documents were
+                divided into text chunks and converted into vector embeddings
+                for semantic retrieval.
+              </p>
+
+              <div class="knowledge-stat">
+                <div>
+                  <small>Source Documents</small>
+                  <strong>20</strong>
+                </div>
+
+                <div>
+                  <small>Vector Embeddings</small>
+                  <strong>187</strong>
+                </div>
+
+                <div>
+                  <small>Embedding Dimension</small>
+                  <strong>384</strong>
+                </div>
+              </div>
+
+              <p class="stat-note">
+                The embeddings were generated using
+                <strong> paraphrase-multilingual-MiniLM-L12-v2 </strong>
+                and stored in Qdrant together with document metadata.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+           USER EXPERIENCE
+      ========================== -->
+
+      <section class="case-section">
+        <div class="container">
+          <div class="case-grid">
+            <div class="case-label">
+              <span>06</span>
+              <small>User Experience</small>
+            </div>
+
+            <div class="case-content reveal-project">
+              <h2>
+                The answer matters.
+                <span>So does how users find it.</span>
+              </h2>
+
+              <p>
+                The frontend was developed with React and Tailwind CSS. The
+                interface was designed around a simple conversation flow: users
+                select a category if needed, type a question, and read the
+                generated response together with its source information.
+              </p>
+
+              <div class="gallery-single">
+                <img
+                  src="../assets/img/ticketing-assistant.jpg"
+                  alt="Ticketing Assistant user interface"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+           TESTING
+      ========================== -->
+
+      <section class="case-section case-section-dark">
+        <div class="container">
+          <div class="case-grid">
+            <div class="case-label">
+              <span>07</span>
+              <small>Testing</small>
+            </div>
+
+            <div class="case-content reveal-project">
+              <h2>
+                Does it actually work
+                <span>when people use it?</span>
+              </h2>
+
+              <p>
+                The prototype was evaluated through functional testing, Human
+                Evaluation, answer comparison against ground truth, and
+                usability testing.
+              </p>
+
+              <div class="result-grid">
+                <div class="result-card">
+                  <small>Human Evaluation</small>
+                  <strong>4.26 / 5</strong>
+                  <span> Average score from 5 respondents </span>
+                </div>
+
+                <div class="result-card">
+                  <small>Ground Truth</small>
+                  <strong>60%</strong>
+                  <span> Answer agreement with reference data </span>
+                </div>
+
+                <div class="result-card">
+                  <small>Usability</small>
+                  <strong>4.80 / 5</strong>
+                  <span> Average score from 10 respondents </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+           WHAT WORKED
+      ========================== -->
+
+      <section class="case-section">
+        <div class="container">
+          <div class="case-grid">
+            <div class="case-label">
+              <span>08</span>
+              <small>What Worked</small>
+            </div>
+
+            <div class="case-content reveal-project">
+              <h2>
+                Retrieval helped keep the
+                <span>answers grounded.</span>
+              </h2>
+
+              <p>
+                Black-box testing showed that the main system functions worked
+                as expected, including question submission, category filtering,
+                context retrieval, response generation, and error handling.
+              </p>
+
+              <p>
+                The retrieval process allowed the chatbot to use relevant
+                information from the knowledge base before generating a
+                response, while the interface also displayed the sources used by
+                the system.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+           LIMITATIONS
+      ========================== -->
+
+      <section class="case-section case-section-alt">
+        <div class="container">
+          <div class="case-grid">
+            <div class="case-label">
+              <span>09</span>
+              <small>Limitations</small>
+            </div>
+
+            <div class="case-content reveal-project">
+              <h2>
+                A RAG system is still
+                <span>limited by its knowledge.</span>
+              </h2>
+
+              <p>
+                Some questions were not fully covered by the available knowledge
+                base. In those cases, the system could only return a fallback
+                response rather than provide a complete answer.
+              </p>
+
+              <p>
+                The Human Evaluation also showed that while the language was
+                generally clear, some answers could still lack detail. This
+                pointed to the importance of improving the source documents and
+                retrieval process rather than relying only on the language
+                model.
+              </p>
+
+              <div class="limitation-note">
+                <small>Next improvement</small>
+                <strong>
+                  Expand the knowledge base and improve document indexing before
+                  moving toward direct operational integration.
+                </strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+           WHAT I LEARNED
+      ========================== -->
+
+      <section class="case-section">
+        <div class="container">
+          <div class="case-grid">
+            <div class="case-label">
+              <span>10</span>
+              <small>What I Learned</small>
+            </div>
+
+            <div class="case-content reveal-project">
+              <h2>
+                Building an AI application
+                <span>is more than calling an API.</span>
+              </h2>
+
+              <p>
+                This project gave me hands-on exposure to connecting a web
+                interface, backend API, vector database, embedding model, and
+                LLM into one application flow.
+              </p>
+
+              <p>
+                It also taught me that the quality of an AI application depends
+                on the whole pipeline: the source data, indexing, retrieval,
+                prompt context, backend logic, and the way users interact with
+                the final system.
+              </p>
+
+              <div class="learning-grid">
+                <span>RAG</span>
+                <span>Vector Search</span>
+                <span>Embeddings</span>
+                <span>FastAPI</span>
+                <span>React</span>
+                <span>Qdrant</span>
+                <span>Gemini API</span>
+                <span>REST API</span>
+                <span>Testing</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+           GALLERY
+      ========================== -->
+
+      <section class="project-gallery">
+        <div class="container">
+          <div class="gallery-heading">
+            <span>11 — PROJECT GALLERY</span>
+
+            <h2>
+              A look inside<br />
+              <em>the chatbot.</em>
+            </h2>
+          </div>
+
+          <div class="gallery-grid">
+            <div class="gallery-item large">
+              <img
+                src="../assets/img/ticketing-assistant.jpg"
+                alt="Ticketing Assistant interface"
+              />
+            </div>
+
+            <div class="gallery-item">
+              <img
+                src="../assets/img/rag-architecture.jpg"
+                alt="RAG system architecture"
+              />
+            </div>
+
+            <div class="gallery-item">
+              <img
+                src="../assets/img/qdrant.jpg"
+                alt="Qdrant vector database"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+           NEXT PROJECT
+      ========================== -->
+
+      <section class="next-project">
+        <div class="container">
+          <span>Back to the beginning</span>
+
+          <a href="../index.html">
+            <h2>
+              More projects,<br />
+              more stories.
+            </h2>
+
+            <div class="next-arrow">
+              Back to Portfolio
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="project-footer">
+      <div class="container">
+        <span> © 2026 Yasikha Farras Ismail </span>
+
+        <a href="../index.html"> Back to Portfolio </a>
+      </div>
+    </footer>
+
+    <!-- =========================
+         REVEAL SCRIPT
+    ========================== -->
+
+    <script>
+      const projectReveals = document.querySelectorAll(".reveal-project");
+
+      const projectRevealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            projectRevealObserver.unobserve(entry.target);
+          }
+        });
+      });
+
+      projectReveals.forEach((el) => {
+        projectRevealObserver.observe(el);
+      });
+    </script>
+  </body>
+</html>
